@@ -1,0 +1,10 @@
+/* globals.css — minimal overrides; the theme provides all base styles via /assets/css/ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure Next.js Link renders cleanly inside theme nav markup */
+a {
+  transition: color 0.2s ease;
+}
