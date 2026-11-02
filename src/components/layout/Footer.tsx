@@ -3,16 +3,22 @@ import { SITE_CONFIG } from '@/config/site';
 
 const QUICK_LINKS = [
   { name: 'Home', path: '/' },
-  { name: 'Types of Transcripts', path: '/types-of-irs-transcripts' },
-  { name: 'How to Request', path: '/how-to-request-irs-transcript' },
-  { name: 'Transcript Codes', path: '/irs-transcript-codes' },
+  { name: 'Transcript Basics', path: '/what-is-an-irs-tax-transcript' },
+  { name: 'Get a Transcript', path: '/how-to-get-irs-tax-transcript-online' },
+  { name: 'Transcript Codes', path: '/irs-transcript-codes-explained' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
 
 const TOPIC_TAGS = [
-  'IRS Transcript', 'Tax Return', 'Account Transcript', 'Wage & Income',
-  'Transcript Codes', 'Get Transcript', 'Form 4506-T', 'IRS Online',
+  { label: 'IRS Transcript', href: '/#featured-articles' },
+  { label: 'Tax Return', href: '/#transcript-guides' },
+  { label: 'Account Transcript', href: '/#latest-articles' },
+  { label: 'Wage & Income', href: '/#latest-articles' },
+  { label: 'Transcript Codes', href: '/#transcript-codes' },
+  { label: 'Get Transcript', href: '/#transcript-guides' },
+  { label: 'Form 4506-T', href: '/#transcript-guides' },
+  { label: 'IRS Online', href: '/#featured-articles' },
 ];
 
 export function Footer() {
@@ -72,7 +78,7 @@ export function Footer() {
               </div>
               <div className="tagcloud mt-50">
                 {TOPIC_TAGS.map((tag) => (
-                  <a key={tag} className="tag-cloud-link" href="#">{tag}</a>
+                  <a key={tag.label} className="tag-cloud-link" href={tag.href}>{tag.label}</a>
                 ))}
               </div>
             </div>
@@ -116,5 +122,3 @@ export function Footer() {
     </footer>
   );
 }
-
-

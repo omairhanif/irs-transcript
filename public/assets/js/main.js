@@ -199,7 +199,7 @@
                 that.tick()
             }, delta)
         };
-        window.onload = function() {
+        var startTypewriter = function() {
             var elements = document.getElementsByClassName('typewrite');
             for (var i = 0; i < elements.length; i++) {
                 var toRotate = elements[i].getAttribute('data-type');
@@ -212,6 +212,11 @@
             css.type = "text/css";
             css.innerHTML = ".typewrite > .wrap { border-right: 0.05em solid #5869DA}";
             document.body.appendChild(css)
+        }
+        if (document.readyState === 'complete') {
+            startTypewriter();
+        } else {
+            window.addEventListener('load', startTypewriter, { once: true });
         }
     }
 
@@ -400,9 +405,11 @@
         const currentTheme = localStorage.getItem("theme");
         if (currentTheme == "dark") {
             document.body.classList.add("dark");
+            darkLightBtn.classList.add("dark");
         };
 
-        darkLightBtn.addEventListener("click", function() {
+        darkLightBtn.addEventListener("click", function(event) {
+            event.preventDefault();
             document.body.classList.toggle("dark");
             let theme = "light";
             if (document.body.classList.contains("dark")) {

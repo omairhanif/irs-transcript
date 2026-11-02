@@ -5,11 +5,20 @@ import { useEffect } from 'react';
 // Core scripts only — 17 → 7 for a simple blog
 const VENDOR_SCRIPTS = [
   '/assets/js/vendor/jquery-3.6.0.min.js',
+  '/assets/js/vendor/popper.min.js',
   '/assets/js/vendor/bootstrap.min.js',
   '/assets/js/vendor/jquery.slicknav.js',
+  '/assets/js/vendor/slick.min.js',
   '/assets/js/vendor/wow.min.js',
+  '/assets/js/vendor/jquery.ticker.js',
+  '/assets/js/vendor/jquery.vticker-min.js',
+  '/assets/js/vendor/jquery.scrollUp.min.js',
+  '/assets/js/vendor/jquery.nice-select.min.js',
+  '/assets/js/vendor/jquery.magnific-popup.js',
+  '/assets/js/vendor/perfect-scrollbar.js',
   '/assets/js/vendor/waypoints.min.js',
   '/assets/js/vendor/jquery.sticky.js',
+  '/assets/js/vendor/jquery.theia.sticky.js',
   '/assets/js/main.js',
 ];
 
@@ -37,4 +46,3 @@ export function ThemeScripts() {
 
   return null;
 }
-

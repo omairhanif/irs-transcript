@@ -8,3 +8,40 @@ html {
 a {
   transition: color 0.2s ease;
 }
+
+.home-post-card .post-thumb,
+.post-thumb .img-hover-slide {
+  overflow: hidden;
+}
+
+.home-article-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.home-post-card .post-thumb:hover .home-article-image {
+  transform: scale(1.04);
+}
+
+.thumb-overlay::before {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.thumb-overlay > .img-link,
+.img-hover-slide > .img-link {
+  z-index: 2;
+}
+
+.carausel-post-1 .post-content-overlay {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.carausel-post-1 .post-content-overlay a {
+  pointer-events: auto;
+}
