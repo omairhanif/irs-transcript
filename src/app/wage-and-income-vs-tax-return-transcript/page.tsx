@@ -1,76 +1,84 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ArticleContent from './article.mdx';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { buildMetadata } from '@/lib/metadata';
 
+const title = "IRS Wage and Income Transcript vs. Tax Return Transcript: What's the Difference?";
+const description =
+  'Compare IRS Wage and Income and Tax Return Transcripts, learn what each includes, and find out which transcript to request and how to get it.';
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Wage And Income Vs Tax Return Transcript',
-  description: 'Learn more about Wage And Income Vs Tax Return Transcript and how it applies to your IRS tax transcript questions.',
+  title,
+  description,
   path: '/wage-and-income-vs-tax-return-transcript',
-  keywords: ['wage-and-income-vs-tax-return-transcript', 'irs transcript guide'],
+  keywords: [
+    'wage and income transcript vs tax return transcript',
+    'irs wage and income transcript',
+    'irs tax return transcript',
+    'difference between wage and income and tax return transcript',
+    'how to get irs transcript',
+  ],
 });
 
 const FAQS = [
   {
-    question: 'What is this IRS transcript guide about?',
-    answer: 'This guide explains the basics of Wage And Income Vs Tax Return Transcript in plain English so you can understand the information that appears on your IRS records.',
+    question: 'Is a Wage and Income Transcript the same as a Tax Return Transcript?',
+    answer:
+      'No. A Wage and Income Transcript shows information reported by third parties, while a Tax Return Transcript summarizes information from your originally filed federal income tax return.',
   },
   {
-    question: 'Why does this matter?',
-    answer: 'Understanding the topic helps you review your tax account, prepare your return, and respond correctly to requests from lenders or government agencies.',
+    question: 'Which transcript shows my W-2 information?',
+    answer:
+      'A Wage and Income Transcript generally includes W-2 information, such as wages and federal income tax withholding, when the IRS has received and processed the document.',
+  },
+  {
+    question: 'Which transcript shows my gross income?',
+    answer:
+      'A Tax Return Transcript generally shows your total income and adjusted gross income from your originally filed federal income tax return.',
+  },
+  {
+    question: 'Are IRS transcripts free?',
+    answer:
+      'Yes. Eligible Wage and Income and Tax Return Transcripts are available from the IRS at no charge.',
+  },
+  {
+    question: 'Can I get these transcripts online?',
+    answer:
+      'Yes. You can generally access both through your IRS Individual Online Account.',
   },
 ];
 
 export default function Page() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Wage And Income Vs Tax Return Transcript', url: '/wage-and-income-vs-tax-return-transcript' }]} />
-      <ArticleSchema title="Wage And Income Vs Tax Return Transcript" description="Learn more about Wage And Income Vs Tax Return Transcript and how it applies to your IRS tax transcript questions." url="/wage-and-income-vs-tax-return-transcript" />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: title, url: '/wage-and-income-vs-tax-return-transcript' },
+        ]}
+      />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url="/wage-and-income-vs-tax-return-transcript"
+      />
 
       <main className="container pb-80 pt-30">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">
-              <span className="post-cat text-info">IRS Transcript</span>
+              <span className="post-cat text-info">Transcript comparison</span>
             </div>
-            <h1 className="entry-title mb-20 font-weight-900">Wage And Income Vs Tax Return Transcript</h1>
+            <div className="entry-meta meta-1 font-x-small text-uppercase">
+              <span className="post-by">IRS Transcript</span>
+              <span className="post-on">Updated guide</span>
+            </div>
           </header>
 
           <div className="entry-content">
-            <p>
-              This article provides a clear, beginner-friendly overview of Wage And Income Vs Tax Return Transcript. It helps explain the
-              key concepts, common questions, and practical context that matter when working with IRS tax
-              transcript information.
-            </p>
-            <p>
-              Use this page as a starting point to understand the basics, then compare it with other
-              transcript types and account activity when you need more detail.
-            </p>
-
-            <h2>What you need to know</h2>
-            <p>
-              IRS transcript information is designed to summarize records the IRS has on file. Depending on
-              the type of transcript, it may show filing details, tax payments, account changes, or income
-              records that were reported by employers or financial institutions.
-            </p>
-
-            <h2>Key takeaway</h2>
-            <p>
-              If you are reviewing an IRS transcript for the first time, focus on the document type, the tax
-              year involved, and the specific information that was requested by the institution or agency
-              asking for it.
-            </p>
-
-            <div className="related-links mt-40 mb-30">
-              <h3>More IRS transcript guides</h3>
-              <ul>
-                <li><Link href="/what-is-an-irs-tax-transcript">What Is an IRS Tax Transcript?</Link></li>
-                <li><Link href="/how-to-get-irs-tax-transcript-online">How to Get an IRS Tax Transcript Online</Link></li>
-                <li><Link href="/irs-transcript-codes-explained">IRS Transcript Codes Explained</Link></li>
-              </ul>
-            </div>
+            <ArticleContent />
           </div>
         </article>
       </main>

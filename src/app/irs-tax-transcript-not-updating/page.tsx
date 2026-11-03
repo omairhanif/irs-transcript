@@ -1,76 +1,90 @@
+/// <reference types="mdx" />
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ArticleContent from './article.mdx';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { buildMetadata } from '@/lib/metadata';
 
+const title = 'Why Is My IRS Tax Transcript Not Updating? Common Reasons and What to Do';
+const description =
+  'Learn why your IRS tax transcript may not be updating, how long processing can take, which codes to check, and what steps to take next.';
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Irs Tax Transcript Not Updating',
-  description: 'Learn more about Irs Tax Transcript Not Updating and how it applies to your IRS tax transcript questions.',
+  title,
+  description,
   path: '/irs-tax-transcript-not-updating',
-  keywords: ['irs-tax-transcript-not-updating', 'irs transcript guide'],
+  keywords: [
+    'irs transcript not updating',
+    'tax transcript no record of return filed',
+    'irs transcript processing time',
+    'irs transcript code 570',
+    'irs transcript code 971',
+  ],
 });
 
 const FAQS = [
   {
-    question: 'What is this IRS transcript guide about?',
-    answer: 'This guide explains the basics of Irs Tax Transcript Not Updating in plain English so you can understand the information that appears on your IRS records.',
+    question: 'What does “No Record of Return Filed” mean?',
+    answer:
+      'It means the transcript you are viewing does not currently show a processed return. It does not always mean the IRS never received your return. Check your filing confirmation and the correct refund-status tool.',
   },
   {
-    question: 'Why does this matter?',
-    answer: 'Understanding the topic helps you review your tax account, prepare your return, and respond correctly to requests from lenders or government agencies.',
+    question: 'How often does the IRS update tax transcripts?',
+    answer:
+      'There is no single update schedule for everyone. Transcript details change when account transactions and information become available through IRS systems. Some accounts need additional processing time.',
+  },
+  {
+    question: 'Does an unchanged transcript mean my tax return was rejected?',
+    answer:
+      'No. An unchanged transcript does not automatically mean your return was rejected. Check your e-file acceptance confirmation or use the IRS refund tracker to see whether the IRS received your return.',
+  },
+  {
+    question: 'Does Code 150 mean my transcript is fully updated?',
+    answer:
+      'No. Code 150 generally means the return was posted and tax assessed. Additional transactions, adjustments, credits, or refund information may appear later.',
+  },
+  {
+    question: 'Can an IRS notice explain why my transcript is not updating?',
+    answer:
+      'Yes. A notice may explain that additional information, verification, or an account adjustment is needed. Check your IRS Online Account and physical mail for letters.',
+  },
+  {
+    question: 'Can I get my transcript by mail if it is not available online?',
+    answer:
+      'Yes. The IRS allows taxpayers to request transcripts by mail and through its automated phone service. You can also use Form 4506-T when necessary. Availability depends on transcript type and tax year.',
   },
 ];
 
 export default function Page() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Irs Tax Transcript Not Updating', url: '/irs-tax-transcript-not-updating' }]} />
-      <ArticleSchema title="Irs Tax Transcript Not Updating" description="Learn more about Irs Tax Transcript Not Updating and how it applies to your IRS tax transcript questions." url="/irs-tax-transcript-not-updating" />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: title, url: '/irs-tax-transcript-not-updating' },
+        ]}
+      />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url="/irs-tax-transcript-not-updating"
+      />
 
-      <main className="container pb-80 pt-30">
+      <main className=" max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">
-              <span className="post-cat text-info">IRS Transcript</span>
+              <span className="post-cat text-info">Troubleshooting</span>
             </div>
-            <h1 className="entry-title mb-20 font-weight-900">Irs Tax Transcript Not Updating</h1>
+            <div className="entry-meta meta-1 font-x-small text-uppercase">
+              <span className="post-by">IRS Transcript</span>
+              <span className="post-on">Updated guide</span>
+            </div>
           </header>
 
           <div className="entry-content">
-            <p>
-              This article provides a clear, beginner-friendly overview of Irs Tax Transcript Not Updating. It helps explain the
-              key concepts, common questions, and practical context that matter when working with IRS tax
-              transcript information.
-            </p>
-            <p>
-              Use this page as a starting point to understand the basics, then compare it with other
-              transcript types and account activity when you need more detail.
-            </p>
-
-            <h2>What you need to know</h2>
-            <p>
-              IRS transcript information is designed to summarize records the IRS has on file. Depending on
-              the type of transcript, it may show filing details, tax payments, account changes, or income
-              records that were reported by employers or financial institutions.
-            </p>
-
-            <h2>Key takeaway</h2>
-            <p>
-              If you are reviewing an IRS transcript for the first time, focus on the document type, the tax
-              year involved, and the specific information that was requested by the institution or agency
-              asking for it.
-            </p>
-
-            <div className="related-links mt-40 mb-30">
-              <h3>More IRS transcript guides</h3>
-              <ul>
-                <li><Link href="/what-is-an-irs-tax-transcript">What Is an IRS Tax Transcript?</Link></li>
-                <li><Link href="/how-to-get-irs-tax-transcript-online">How to Get an IRS Tax Transcript Online</Link></li>
-                <li><Link href="/irs-transcript-codes-explained">IRS Transcript Codes Explained</Link></li>
-              </ul>
-            </div>
+            <ArticleContent />
           </div>
         </article>
       </main>

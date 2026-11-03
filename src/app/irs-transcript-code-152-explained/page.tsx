@@ -1,76 +1,84 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ArticleContent from './article.mdx';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { buildMetadata } from '@/lib/metadata';
 
+const title = 'IRS Transcript Code 152 Explained: What It Means for Your Tax Refund';
+const description =
+  'Learn what IRS Tax Topic 152 means, how it differs from transcript transaction codes, and what to do while waiting for a refund.';
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Irs Transcript Code 152 Explained',
-  description: 'Learn more about Irs Transcript Code 152 Explained and how it applies to your IRS tax transcript questions.',
+  title,
+  description,
   path: '/irs-transcript-code-152-explained',
-  keywords: ['irs-transcript-code-152-explained', 'irs transcript guide'],
+  keywords: [
+    'irs tax topic 152',
+    'irs code 152 refund',
+    'what does tax topic 152 mean',
+    'irs transcript code 152 explained',
+    'tax topic 152 refund status',
+  ],
 });
 
 const FAQS = [
   {
-    question: 'What is this IRS transcript guide about?',
-    answer: 'This guide explains the basics of Irs Transcript Code 152 Explained in plain English so you can understand the information that appears on your IRS records.',
+    question: 'Is IRS Code 152 good or bad?',
+    answer:
+      'Tax Topic 152 is generally an informational message related to refund processing. It does not mean your return contains an error, that you are being audited, or that your refund has been approved.',
   },
   {
-    question: 'Why does this matter?',
-    answer: 'Understanding the topic helps you review your tax account, prepare your return, and respond correctly to requests from lenders or government agencies.',
+    question: 'Does Tax Topic 152 mean my refund is delayed?',
+    answer:
+      'It can appear while your return is still being processed and additional time may be needed. The message alone does not confirm a delay or explain how long processing will take.',
+  },
+  {
+    question: 'Should I contact the IRS after seeing Code 152?',
+    answer:
+      "You generally do not need to contact the IRS just because Tax Topic 152 appears. Check Where's My Refund? and contact the IRS if the tracker instructs you to do so.",
+  },
+  {
+    question: 'Does IRS Code 152 mean I am being audited?',
+    answer:
+      'No. Tax Topic 152 is not an indication of an audit. If the IRS selects your return for examination, it will generally send correspondence explaining the situation.',
+  },
+  {
+    question: 'Does Code 152 have a specific refund date?',
+    answer:
+      "No. Tax Topic 152 does not provide a specific refund date. Use the IRS refund tracker to monitor your status and look for a payment update.",
   },
 ];
 
 export default function Page() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Irs Transcript Code 152 Explained', url: '/irs-transcript-code-152-explained' }]} />
-      <ArticleSchema title="Irs Transcript Code 152 Explained" description="Learn more about Irs Transcript Code 152 Explained and how it applies to your IRS tax transcript questions." url="/irs-transcript-code-152-explained" />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: title, url: '/irs-transcript-code-152-explained' },
+        ]}
+      />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url="/irs-transcript-code-152-explained"
+      />
 
       <main className="container pb-80 pt-30">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">
-              <span className="post-cat text-info">IRS Transcript</span>
+              <span className="post-cat text-info">Transcript codes</span>
             </div>
-            <h1 className="entry-title mb-20 font-weight-900">Irs Transcript Code 152 Explained</h1>
+            <div className="entry-meta meta-1 font-x-small text-uppercase">
+              <span className="post-by">IRS Transcript</span>
+              <span className="post-on">Updated guide</span>
+            </div>
           </header>
 
           <div className="entry-content">
-            <p>
-              This article provides a clear, beginner-friendly overview of Irs Transcript Code 152 Explained. It helps explain the
-              key concepts, common questions, and practical context that matter when working with IRS tax
-              transcript information.
-            </p>
-            <p>
-              Use this page as a starting point to understand the basics, then compare it with other
-              transcript types and account activity when you need more detail.
-            </p>
-
-            <h2>What you need to know</h2>
-            <p>
-              IRS transcript information is designed to summarize records the IRS has on file. Depending on
-              the type of transcript, it may show filing details, tax payments, account changes, or income
-              records that were reported by employers or financial institutions.
-            </p>
-
-            <h2>Key takeaway</h2>
-            <p>
-              If you are reviewing an IRS transcript for the first time, focus on the document type, the tax
-              year involved, and the specific information that was requested by the institution or agency
-              asking for it.
-            </p>
-
-            <div className="related-links mt-40 mb-30">
-              <h3>More IRS transcript guides</h3>
-              <ul>
-                <li><Link href="/what-is-an-irs-tax-transcript">What Is an IRS Tax Transcript?</Link></li>
-                <li><Link href="/how-to-get-irs-tax-transcript-online">How to Get an IRS Tax Transcript Online</Link></li>
-                <li><Link href="/irs-transcript-codes-explained">IRS Transcript Codes Explained</Link></li>
-              </ul>
-            </div>
+            <ArticleContent />
           </div>
         </article>
       </main>

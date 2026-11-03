@@ -1,76 +1,79 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ArticleContent from './article.mdx';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { buildMetadata } from '@/lib/metadata';
 
+const title = 'How to Get Your IRS Tax Transcript Online: Step-by-Step Guide';
+const description =
+  'Follow clear steps to sign in to your IRS Individual Online Account, choose the right transcript and tax year, and download your tax transcript.';
+
 export const metadata: Metadata = buildMetadata({
-  title: 'How To Get Irs Tax Transcript Online',
-  description: 'Learn more about How To Get Irs Tax Transcript Online and how it applies to your IRS tax transcript questions.',
+  title,
+  description,
   path: '/how-to-get-irs-tax-transcript-online',
-  keywords: ['how-to-get-irs-tax-transcript-online', 'irs transcript guide'],
+  keywords: [
+    'get irs tax transcript online',
+    'how to get tax transcript',
+    'irs individual online account',
+    'download irs tax transcript',
+    'irs transcript types',
+  ],
 });
 
 const FAQS = [
   {
-    question: 'What is this IRS transcript guide about?',
-    answer: 'This guide explains the basics of How To Get Irs Tax Transcript Online in plain English so you can understand the information that appears on your IRS records.',
+    question: 'Is it free to get an IRS transcript online?',
+    answer:
+      'Yes. The IRS generally provides transcripts free through its official online account and other IRS request methods. Be cautious of third-party sites that charge to obtain a transcript.',
   },
   {
-    question: 'Why does this matter?',
-    answer: 'Understanding the topic helps you review your tax account, prepare your return, and respond correctly to requests from lenders or government agencies.',
+    question: 'How long does it take to get an IRS transcript online?',
+    answer:
+      'If the transcript is available in your Individual Online Account, you can generally view or download it after signing in. Availability depends on the transcript type and tax year.',
+  },
+  {
+    question: 'Which IRS transcript should I choose?',
+    answer:
+      'Choose based on what you need to verify. A Tax Return Transcript contains most information from your original return; a Tax Account Transcript focuses on account activity; a Record of Account combines both; and a Wage and Income Transcript lists information returns reported to the IRS. Confirm the exact requirement with the organization requesting the document.',
+  },
+  {
+    question: 'Can I get a transcript if I cannot use the online account?',
+    answer:
+      'The IRS Get Transcript page lists other request methods, including mail or phone, for eligible documents. Check IRS.gov for the current instructions and options.',
   },
 ];
 
 export default function Page() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'How To Get Irs Tax Transcript Online', url: '/how-to-get-irs-tax-transcript-online' }]} />
-      <ArticleSchema title="How To Get Irs Tax Transcript Online" description="Learn more about How To Get Irs Tax Transcript Online and how it applies to your IRS tax transcript questions." url="/how-to-get-irs-tax-transcript-online" />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: title, url: '/how-to-get-irs-tax-transcript-online' },
+        ]}
+      />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url="/how-to-get-irs-tax-transcript-online"
+      />
 
       <main className="container pb-80 pt-30">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">
-              <span className="post-cat text-info">IRS Transcript</span>
+              <span className="post-cat text-info">Getting transcripts</span>
             </div>
-            <h1 className="entry-title mb-20 font-weight-900">How To Get Irs Tax Transcript Online</h1>
+            <div className="entry-meta meta-1 font-x-small text-uppercase">
+              <span className="post-by">IRS Transcript</span>
+              <span className="post-on">Updated guide</span>
+            </div>
           </header>
 
           <div className="entry-content">
-            <p>
-              This article provides a clear, beginner-friendly overview of How To Get Irs Tax Transcript Online. It helps explain the
-              key concepts, common questions, and practical context that matter when working with IRS tax
-              transcript information.
-            </p>
-            <p>
-              Use this page as a starting point to understand the basics, then compare it with other
-              transcript types and account activity when you need more detail.
-            </p>
-
-            <h2>What you need to know</h2>
-            <p>
-              IRS transcript information is designed to summarize records the IRS has on file. Depending on
-              the type of transcript, it may show filing details, tax payments, account changes, or income
-              records that were reported by employers or financial institutions.
-            </p>
-
-            <h2>Key takeaway</h2>
-            <p>
-              If you are reviewing an IRS transcript for the first time, focus on the document type, the tax
-              year involved, and the specific information that was requested by the institution or agency
-              asking for it.
-            </p>
-
-            <div className="related-links mt-40 mb-30">
-              <h3>More IRS transcript guides</h3>
-              <ul>
-                <li><Link href="/what-is-an-irs-tax-transcript">What Is an IRS Tax Transcript?</Link></li>
-                <li><Link href="/how-to-get-irs-tax-transcript-online">How to Get an IRS Tax Transcript Online</Link></li>
-                <li><Link href="/irs-transcript-codes-explained">IRS Transcript Codes Explained</Link></li>
-              </ul>
-            </div>
+            <ArticleContent />
           </div>
         </article>
       </main>

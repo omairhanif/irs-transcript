@@ -1,76 +1,94 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ArticleContent from './article.mdx';
 import { ArticleSchema } from '@/components/seo/ArticleSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { buildMetadata } from '@/lib/metadata';
 
+const title = 'IRS Transcript Code 570: Why Is Your Tax Refund on Hold?';
+const description =
+  'Learn what IRS Transcript Code 570 means, why a refund may be on hold, how to read related codes, and what steps to take next.';
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Irs Transcript Code 570 Refund Hold',
-  description: 'Learn more about Irs Transcript Code 570 Refund Hold and how it applies to your IRS tax transcript questions.',
+  title,
+  description,
   path: '/irs-transcript-code-570-refund-hold',
-  keywords: ['irs-transcript-code-570-refund-hold', 'irs transcript guide'],
+  keywords: [
+    'irs transcript code 570',
+    'code 570 refund hold',
+    'irs tax refund on hold',
+    'code 570 and 971',
+    'code 570 and 571',
+  ],
 });
 
 const FAQS = [
   {
-    question: 'What is this IRS transcript guide about?',
-    answer: 'This guide explains the basics of Irs Transcript Code 570 Refund Hold in plain English so you can understand the information that appears on your IRS records.',
+    question: 'Does IRS Code 570 mean my refund has been denied?',
+    answer:
+      'No. Code 570 does not mean your refund has been permanently denied. It generally indicates that the IRS has not completed an account action or released a held credit.',
   },
   {
-    question: 'Why does this matter?',
-    answer: 'Understanding the topic helps you review your tax account, prepare your return, and respond correctly to requests from lenders or government agencies.',
+    question: 'Can Code 570 disappear without Code 571?',
+    answer:
+      'Yes. Transcript activity varies depending on account circumstances. Do not assume every hold must follow a particular sequence of codes; review the full transaction history.',
+  },
+  {
+    question: 'Does Code 570 mean I made a mistake on my tax return?',
+    answer:
+      'Not necessarily. The IRS may need time to verify information or resolve an account issue. The code alone does not identify an error or prove that you filed incorrectly.',
+  },
+  {
+    question: 'Should I amend my return because of Code 570?',
+    answer:
+      'No. Do not file an amended return just because Code 570 appears. Review your return and any IRS notices first. Amend only if you identify an error or the IRS instructs you to take a particular action.',
+  },
+  {
+    question: 'Can Code 570 appear with Code 971?',
+    answer:
+      'Yes. Both codes may appear on a transcript. Code 971 represents a miscellaneous account action, and its specific meaning depends on the action code and related information.',
+  },
+  {
+    question: 'What does Code 570 followed by Code 846 mean?',
+    answer:
+      'This may indicate that the IRS placed a hold on your account and later issued your refund. Review the dates and amounts to understand the sequence. Code 846 generally indicates that the refund transaction was issued.',
+  },
+  {
+    question: 'Will I receive a letter if Code 570 appears?',
+    answer:
+      'Not always. Some account actions may not require a notice, while others may result in an IRS letter requesting information or explaining an adjustment. Check your online account and physical mail regularly.',
   },
 ];
 
 export default function Page() {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Irs Transcript Code 570 Refund Hold', url: '/irs-transcript-code-570-refund-hold' }]} />
-      <ArticleSchema title="Irs Transcript Code 570 Refund Hold" description="Learn more about Irs Transcript Code 570 Refund Hold and how it applies to your IRS tax transcript questions." url="/irs-transcript-code-570-refund-hold" />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: title, url: '/irs-transcript-code-570-refund-hold' },
+        ]}
+      />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url="/irs-transcript-code-570-refund-hold"
+      />
 
       <main className="container pb-80 pt-30">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">
-              <span className="post-cat text-info">IRS Transcript</span>
+              <span className="post-cat text-info">Refunds</span>
             </div>
-            <h1 className="entry-title mb-20 font-weight-900">Irs Transcript Code 570 Refund Hold</h1>
+            <div className="entry-meta meta-1 font-x-small text-uppercase">
+              <span className="post-by">IRS Transcript</span>
+              <span className="post-on">Updated guide</span>
+            </div>
           </header>
 
           <div className="entry-content">
-            <p>
-              This article provides a clear, beginner-friendly overview of Irs Transcript Code 570 Refund Hold. It helps explain the
-              key concepts, common questions, and practical context that matter when working with IRS tax
-              transcript information.
-            </p>
-            <p>
-              Use this page as a starting point to understand the basics, then compare it with other
-              transcript types and account activity when you need more detail.
-            </p>
-
-            <h2>What you need to know</h2>
-            <p>
-              IRS transcript information is designed to summarize records the IRS has on file. Depending on
-              the type of transcript, it may show filing details, tax payments, account changes, or income
-              records that were reported by employers or financial institutions.
-            </p>
-
-            <h2>Key takeaway</h2>
-            <p>
-              If you are reviewing an IRS transcript for the first time, focus on the document type, the tax
-              year involved, and the specific information that was requested by the institution or agency
-              asking for it.
-            </p>
-
-            <div className="related-links mt-40 mb-30">
-              <h3>More IRS transcript guides</h3>
-              <ul>
-                <li><Link href="/what-is-an-irs-tax-transcript">What Is an IRS Tax Transcript?</Link></li>
-                <li><Link href="/how-to-get-irs-tax-transcript-online">How to Get an IRS Tax Transcript Online</Link></li>
-                <li><Link href="/irs-transcript-codes-explained">IRS Transcript Codes Explained</Link></li>
-              </ul>
-            </div>
+            <ArticleContent />
           </div>
         </article>
       </main>
