@@ -1,7 +1,7 @@
 /* globals.css — minimal overrides; the theme provides all base styles via /assets/css/ */
 
 html {
-  scroll-behavior: smooth;
+  @apply tw-scroll-smooth;
 }
 
 /* Ensure Next.js Link renders cleanly inside theme nav markup */
@@ -9,39 +9,122 @@ a {
   transition: color 0.2s ease;
 }
 
-.home-post-card .post-thumb,
-.post-thumb .img-hover-slide {
-  overflow: hidden;
+.post-card-1.home-post-card {
+  border-radius: 14px;
 }
 
-.home-article-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+.post-card-1.home-post-card > .post-content {
+  border-radius: 14px;
 }
 
-.home-post-card .post-thumb:hover .home-article-image {
-  transform: scale(1.04);
+.carausel-post-1.home-featured-carousel,
+.carausel-post-1.home-featured-carousel .home-featured-slide {
+  border-radius: 14px;
 }
 
-.thumb-overlay::before {
-  z-index: 1;
+.home-featured-slide {
+  position: relative;
+  display: flex;
+  min-height: 340px;
+  align-items: center;
+  padding: 58px 52px;
+  border: 1px solid var(--mutted-border-color);
+  border-radius: 10px;
+  background: var(--color-white);
+}
+
+.home-featured-content {
+  max-width: 680px;
+}
+
+.home-featured-slide .top-left-icon {
+  top: 20px;
+  left: 20px;
+}
+
+.home-latest-article-card {
+  border: 1px solid var(--mutted-border-color);
+  border-radius: 10px;
+  background: var(--color-white);
+}
+
+.home-latest-article-card .post-content {
+  padding: 25px;
+}
+
+.home-card-share {
+  position: static;
+  display: flex;
+  justify-content: flex-end;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-card-share li {
+  float: none;
+  width: auto;
+  max-width: 0;
+  margin-left: 5px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.home-card-share li:first-child,
+.home-post-card:hover .home-card-share li,
+.home-latest-article:hover .home-card-share li {
+  max-width: 24px;
+  opacity: 1;
+}
+
+.home-card-share li:first-child {
   pointer-events: none;
 }
 
-.thumb-overlay > .img-link,
-.img-hover-slide > .img-link {
-  z-index: 2;
+.home-card-share li a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  line-height: 24px;
+  text-align: center;
+  background: #007aff;
 }
 
-.carausel-post-1 .post-content-overlay {
-  z-index: 3;
-  pointer-events: none;
+.home-card-share li a.fb {
+  background: #3b5999;
 }
 
-.carausel-post-1 .post-content-overlay a {
-  pointer-events: auto;
+.home-card-share li a.tw {
+  background: #55acee;
 }
+
+.home-card-share li a.pt {
+  background: #bd081c;
+}
+
+.dark .home-featured-slide,
+.dark .home-latest-article-card {
+  border-color: var(--dark-mutted-border-color);
+  background: var(--dark-background);
+}
+
+@media (max-width: 767px) {
+  .home-featured-slide {
+    min-height: 280px;
+    padding: 48px 30px 32px;
+  }
+
+  .home-featured-slide .post-title {
+    font-size: 26px;
+  }
+
+  .home-latest-article-card .post-content {
+    padding: 20px;
+  }
+}
+
+@tailwind utilities;

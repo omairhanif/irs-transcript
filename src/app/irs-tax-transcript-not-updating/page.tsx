@@ -71,7 +71,7 @@ export default function Page() {
         url="/irs-tax-transcript-not-updating"
       />
 
-      <main className=" max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="tw-mx-auto tw-px-6">
         <article className="entry-main-content single-content">
           <header className="entry-header mb-40">
             <div className="entry-meta meta-0 font-small mb-10">

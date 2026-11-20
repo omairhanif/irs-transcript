@@ -5,19 +5,16 @@ const QUICK_ARTICLES = [
   {
     title: 'How to Get an IRS Tax Transcript Online',
     slug: 'how-to-get-irs-tax-transcript-online',
-    image: 'how-to-get-irs-tax-transcript-online',
     description: 'Requesting a transcript',
   },
   {
     title: 'IRS Transcript Codes Explained',
     slug: 'irs-transcript-codes-explained',
-    image: 'irs-transcript-codes-explained',
     description: 'Understanding account codes',
   },
   {
     title: 'IRS Transcript Code 846: Refund Issued',
     slug: 'irs-transcript-code-846-refund',
-    image: 'irs-transcript-code-846-refund',
     description: 'Reading refund activity',
   },
 ];
@@ -33,11 +30,6 @@ function QuickArticle({ article }: { article: (typeof QUICK_ARTICLES)[number] })
   return (
     <li className="mb-30">
       <div className="d-flex hover-up-2 transition-normal">
-        <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-          <Link className="color-white" href={`/${article.slug}`}>
-            <img src={`/articles/${article.image}.jpg`} alt={article.title} loading="lazy" decoding="async" />
-          </Link>
-        </div>
         <div className="post-content media-body">
           <h6 className="post-title mb-15 text-limit-2-row font-medium">
             <Link href={`/${article.slug}`}>{article.title}</Link>
@@ -133,12 +125,8 @@ export function Header() {
             <div className="main-nav d-none d-lg-block float-start">
               <nav>
                 <ul className="main-menu d-none d-lg-inline font-small">
-                  <li className="menu-item-has-children">
+                  <li>
                     <Link href="/"><i className="elegant-icon icon_house_alt mr-5"></i>Home</Link>
-                    <ul className="sub-menu text-muted font-small">
-                      <li><a href="/#featured-articles">Featured articles</a></li>
-                      <li><a href="/#latest-articles">Latest articles</a></li>
-                    </ul>
                   </li>
                   <li><Link href="/what-is-an-irs-tax-transcript">Transcript basics</Link></li>
                   <li className="current-item has-mega-menu">
@@ -185,12 +173,8 @@ export function Header() {
                 </ul>
 
                 <ul id="mobile-menu" className="d-block d-lg-none text-muted">
-                  <li className="menu-item-has-children">
+                  <li>
                     <Link href="/">Home</Link>
-                    <ul className="sub-menu text-muted font-small">
-                      <li><a href="/#featured-articles">Featured articles</a></li>
-                      <li><a href="/#latest-articles">Latest articles</a></li>
-                    </ul>
                   </li>
                   <li><Link href="/what-is-an-irs-tax-transcript">Transcript basics</Link></li>
                   <li className="menu-item-has-children">
@@ -273,12 +257,7 @@ export function Header() {
             <div className="row mt-80">
               {QUICK_ARTICLES.map((article) => (
                 <div className="col-lg-4 col-md-6" key={article.slug}>
-                  <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
-                    <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                      <Link className="color-white" href={`/${article.slug}`}>
-                        <img src={`/articles/${article.image}.jpg`} alt={article.title} loading="lazy" decoding="async" />
-                      </Link>
-                    </div>
+                  <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-10 mb-30">
                     <div className="post-content media-body">
                       <h6><Link href={`/${article.slug}`}>{article.title}</Link></h6>
                       <p className="text-muted font-small">{article.description}</p>

@@ -125,7 +125,7 @@ function ShareLinks({ article }: { article: Article }) {
   const title = encodeURIComponent(article.title);
 
   return (
-    <ul className="social-share">
+    <ul className="social-share home-card-share">
       <li><a href="#" aria-label={`Share ${article.title}`}><i className="elegant-icon social_share"></i></a></li>
       <li><a className="fb" href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} title="Share on Facebook" target="_blank" rel="noopener noreferrer"><i className="elegant-icon social_facebook"></i></a></li>
       <li><a className="tw" href={`https://twitter.com/intent/tweet?url=${url}&text=${title}`} title="Share on X" target="_blank" rel="noopener noreferrer"><i className="elegant-icon social_twitter"></i></a></li>
@@ -138,17 +138,6 @@ function ArticleCard({ article }: { article: Article }) {
   return (
     <article className="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">
       <div className="post-card-1 border-radius-10 hover-up home-post-card">
-        <div className="post-thumb thumb-overlay img-hover-slide position-relative">
-          <img
-            className="home-article-image"
-            src={`/articles/${article.slug}.jpg`}
-            alt={article.title}
-            loading="lazy"
-            decoding="async"
-          />
-          <Link className="img-link" href={`/${article.slug}`} aria-label={article.title} />
-          <ShareLinks article={article} />
-        </div>
         <div className="post-content p-30">
           <ArticleTags article={article} />
           <div className="d-flex post-card-content">
@@ -156,6 +145,7 @@ function ArticleCard({ article }: { article: Article }) {
               <Link href={`/${article.slug}`}>{article.title}</Link>
             </h5>
             <p className="post-excerpt mb-20 font-small text-muted">{article.description}</p>
+            <ShareLinks article={article} />
           </div>
         </div>
       </div>
@@ -165,30 +155,16 @@ function ArticleCard({ article }: { article: Article }) {
 
 function LatestArticle({ article }: { article: Article }) {
   return (
-    <article className="hover-up-2 transition-normal wow fadeInUp animated">
-      <div className="row mb-40 list-style-2">
-        <div className="col-md-4">
-          <div className="post-thumb position-relative border-radius-5">
-            <div className="img-hover-slide border-radius-5 position-relative">
-              <img
-                className="home-article-image"
-                src={`/articles/${article.slug}.jpg`}
-                alt={article.title}
-                loading="lazy"
-                decoding="async"
-              />
-              <Link className="img-link" href={`/${article.slug}`} aria-label={article.title} />
-            </div>
-            <ShareLinks article={article} />
-          </div>
-        </div>
-        <div className="col-md-8 align-self-center">
+    <article className="hover-up-2 transition-normal wow fadeInUp animated home-latest-article">
+      <div className="row mb-40 home-latest-article-card">
+        <div className="col-12">
           <div className="post-content">
             <ArticleTags article={article} />
             <h5 className="post-title font-weight-900 mb-15">
               <Link href={`/${article.slug}`}>{article.title}</Link>
             </h5>
             <p className="post-excerpt mb-15 font-small text-muted">{article.description}</p>
+            <ShareLinks article={article} />
           </div>
         </div>
       </div>
@@ -198,24 +174,14 @@ function LatestArticle({ article }: { article: Article }) {
 
 function FeaturedSlide({ article }: { article: Article }) {
   return (
-    <div className="position-relative post-thumb">
-      <div className="thumb-overlay img-hover-slide position-relative">
-        <img
-          className="home-article-image"
-          src={`/articles/${article.slug}.jpg`}
-          alt={article.title}
-          loading="lazy"
-          decoding="async"
-        />
-        <Link className="img-link" href={`/${article.slug}`} aria-label={article.title} />
-        <span className="top-left-icon bg-warning"><i className="elegant-icon icon_star_alt"></i></span>
-        <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
-          <ArticleTags article={article} />
-          <h3 className="post-title font-weight-900 mb-15">
-            <Link className="text-white" href={`/${article.slug}`}>{article.title}</Link>
-          </h3>
-          <p className="font-small text-white mb-0">{article.description}</p>
-        </div>
+    <div className="home-featured-slide">
+      <span className="top-left-icon bg-warning"><i className="elegant-icon icon_star_alt"></i></span>
+      <div className="home-featured-content">
+        <ArticleTags article={article} />
+        <h3 className="post-title font-weight-900 mb-15">
+          <Link href={`/${article.slug}`}>{article.title}</Link>
+        </h3>
+        <p className="font-small text-muted mb-0">{article.description}</p>
       </div>
     </div>
   );
@@ -224,17 +190,12 @@ function FeaturedSlide({ article }: { article: Article }) {
 function SidebarArticle({ article }: { article: Article }) {
   return (
     <li className="mb-30">
-      <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+      <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-10">
         <div className="post-content media-body">
           <h6 className="post-title mb-15 text-limit-2-row font-medium">
             <Link href={`/${article.slug}`}>{article.title}</Link>
           </h6>
           <ArticleTags article={article} />
-        </div>
-        <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-          <Link className="color-white" href={`/${article.slug}`}>
-            <img src={`/articles/${article.slug}.jpg`} alt={article.title} loading="lazy" decoding="async" />
-          </Link>
         </div>
       </div>
     </li>
@@ -301,7 +262,7 @@ export default function HomePage() {
         <div className="loop-grid mb-30">
           <div className="row">
             <div className="col-lg-8 mb-30">
-              <div className="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
+              <div className="carausel-post-1 home-featured-carousel hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
                 <div className="arrow-cover"></div>
                 <div className="slide-fade">
                   {ARTICLES.slice(0, 2).map((article) => (
@@ -411,11 +372,6 @@ export default function HomePage() {
                       {group.articles.map((article) => (
                         <li className="mb-30" key={article.slug}>
                           <div className="d-flex hover-up-2 transition-normal">
-                            <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                              <Link className="color-white" href={`/${article.slug}`}>
-                                <img src={`/articles/${article.slug}.jpg`} alt={article.title} loading="lazy" decoding="async" />
-                              </Link>
-                            </div>
                             <div className="post-content media-body">
                               <h6 className="post-title mb-15 text-limit-2-row font-medium">
                                 <Link href={`/${article.slug}`}>{article.title}</Link>
